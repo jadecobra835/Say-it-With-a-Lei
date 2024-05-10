@@ -1,0 +1,44 @@
+.navWrapper {
+    height: 90px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-between;
+
+    .logoWrapper {
+        img {
+            height: 90px;
+        }
+    }
+
+    .linksWrapper {
+        display: grid;
+        grid-template-rows: 1fr, 1fr;
+        justify-content: right;
+
+        .linkWrapper {
+            width: 230px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: 0.5s ease-in-out;
+
+            &:hover {
+                background-color: $green;
+            }
+
+            a {
+                text-decoration: none;
+                color: black; 
+            }
+        }
+
+        .darkTeal {
+            background-color: $dark-teal;
+        }
+
+        .lightTeal {
+            background-color: $light-teal;
+        }
+    }
+}
