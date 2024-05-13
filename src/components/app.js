@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route, NavLink } from 'react-router-dom';
 
-import Home from './home';
+import Home from './Home/home.js';
 import Navigation from './navigation/nav-bar';
-import aboutMe from './aboutMe';
+import AboutMe from './aboutMe/aboutMe.js';
+import Custom from './customLei/customLei.js';
 
 export default class App extends Component {
   constructor() {
@@ -20,7 +21,8 @@ export default class App extends Component {
 
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route path="/about-me" component={aboutMe} />
+            <Route path="/about-me" component={AboutMe} />
+            <Route path="/make-your-own" component={Custom} />
           </Switch>
         </Router>
 

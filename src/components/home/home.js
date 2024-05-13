@@ -1,24 +1,49 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 
-import headshot from '../../static/assets/Headshot.jpg';
+import headshot from '../../../static/assets/Headshot.jpg';
+import weddingAndBaptism from '../../../static/assets/BlueGreenLei.jpg';
+import graduation from '../../../static/assets/OrangeLei.jpg';
+import custom from '../../../static/assets/BlueGreenLei.jpg';
  
 export default class Home extends Component {
+    componentWillUnmount() {
+        console.log('About Me')
+    };
+
     render() {
         return (
             <div className="home">
                 <div className="pictureLinksWrapper">
                     <div className="pictureLink">
-                        <NavLink to="about-me">Wedding & Baptism</NavLink>
+                        <NavLink to="about-me">
+                            <div className="imageLink" style={{backgroundImage: `url(${weddingAndBaptism})`}}>
+                                <div className="imageButton">
+                                    <p>Wedding & Baptism</p>
+                                </div>
+                            </div>
+                        </NavLink>
                         
                     </div>
 
                     <div className="pictureLink">
-                        <NavLink to="about-me">Graduation</NavLink>
+                        <NavLink to="about-me">
+                            <div className="imageLink" style={{backgroundImage: `url(${graduation})`}}>
+                                <div className="imageButton">
+                                    <p>Graduation</p>
+                                </div>
+                            </div>
+                        </NavLink>
                     </div>
 
                     <div className="pictureLink">
-                        <NavLink to="about-me">Make your Own</NavLink>
+                        <NavLink to="make-your-own">
+                            <div className="imageLink" style={{backgroundImage: `url(${custom})`}}>
+                                <div className="imageButton">
+                                    <p>Make Your Own</p>
+                                </div>
+                            </div>
+                        </NavLink>
                     </div>
                 </div>
 
@@ -28,7 +53,7 @@ export default class Home extends Component {
                             <h1>About Me</h1>
                         </div>
 
-                        <div className="text">
+                        <div className="text aboutMeText">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
                             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
                             Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 

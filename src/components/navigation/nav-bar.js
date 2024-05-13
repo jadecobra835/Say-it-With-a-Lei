@@ -14,11 +14,15 @@ export default class Navigation extends Component {
 
                 <div className="linksWrapper">
                     <div className="linkWrapper lightTeal">
-                        <NavLink exact to="/">Home</NavLink>
+                        <NavLink exact to="/" className="navLink">Home</NavLink>
                     </div>
 
                     <div className="linkWrapper darkTeal">
-                        <NavLink to="/about-me">About Me</NavLink>
+                        <NavLink to="/about-me" className="navLink">About Me</NavLink>
+                    </div>
+
+                    <div className="linkWrapper lightTeal">
+                        <NavLink to="/make-your-own" className="navLink">Make Your Own</NavLink>
                     </div>
                 </div>
             </div>
