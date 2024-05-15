@@ -13,9 +13,8 @@ export default class Custom extends Component {
                 </div>
 
                 <div className="sizeOption active">
-                    
-                </div>
 
+                </div>
             </div>
         );
     }
