@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
- 
+
 export default class Custom extends Component {
+    constructor() {
+        super()
+
+    }
+
     render() {
         return (
             <div className="customLeiPage">
@@ -13,7 +18,7 @@ export default class Custom extends Component {
                 </div>
 
                 <div className="sizeOption active">
-
+                   
                 </div>
             </div>
         );

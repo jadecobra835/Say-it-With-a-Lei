@@ -24,6 +24,10 @@ export default class Navigation extends Component {
                     <div className="linkWrapper lightTeal">
                         <NavLink to="/make-your-own" className="navLink">Make Your Own</NavLink>
                     </div>
+
+                    <div className="linkWrapper darkTeal">
+                        <NavLink to="/graduation" className="navLink">Graduation</NavLink>
+                    </div>
                 </div>
             </div>
         );

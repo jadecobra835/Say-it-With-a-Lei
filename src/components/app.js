@@ -5,6 +5,7 @@ import Home from './Home/home.js';
 import Navigation from './navigation/nav-bar';
 import AboutMe from './aboutMe/aboutMe.js';
 import Custom from './customLei/customLei.js';
+import Graduation from './shoppingPages/graduation.js';
 
 export default class App extends Component {
   constructor() {
@@ -23,6 +24,7 @@ export default class App extends Component {
             <Route exact path="/" component={Home} />
             <Route path="/about-me" component={AboutMe} />
             <Route path="/make-your-own" component={Custom} />
+            <Route path="/graduation" component={Graduation} />
           </Switch>
         </Router>
 

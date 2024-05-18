@@ -27,7 +27,7 @@ export default class Home extends Component {
                     </div>
 
                     <div className="pictureLink">
-                        <NavLink to="about-me">
+                        <NavLink to="graduation">
                             <div className="imageLink" style={{backgroundImage: `url(${graduation})`}}>
                                 <div className="imageButton">
                                     <p>Graduation</p>
