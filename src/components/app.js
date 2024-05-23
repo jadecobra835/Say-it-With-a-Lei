@@ -11,6 +11,18 @@ import Auth from './auth/auth.js';
 export default class App extends Component {
   constructor() {
     super()
+
+    this.state = {
+      loggedInStatus: false
+    }
+
+    this.successfullLogin = this.successfullLogin.bind(this);
+  }
+
+  successfullLogin(state) {
+    this.setState({
+      loggedInStatus: state
+    })
   }
 
   render() {
@@ -26,7 +38,15 @@ export default class App extends Component {
             <Route path="/about-me" component={AboutMe} />
             <Route path="/make-your-own" component={Custom} />
             <Route path="/graduation" component={Graduation} />
-            <Route path="/auth" component={Auth} />
+            <Route 
+              path="/auth" 
+              render={props => (
+                <Auth 
+                  {...props}
+                  successfullLogin={this.successfullLogin}
+                />
+              )}
+            />
           </Switch>
         </Router>
 

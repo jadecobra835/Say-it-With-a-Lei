@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+
+import Popup from './logInPopup';
  
 export default class Auth extends Component {
     constructor(props) {
@@ -7,7 +9,10 @@ export default class Auth extends Component {
 
         this.state = {
             userName: "",
-            password: ""
+            password: "",
+            logInStatus: false,
+            popupSize: '0px',
+            popupTextSize: '0px'
         }
 
         this.handleSubmit = this.handleSubmit.bind(this); 
@@ -28,14 +33,29 @@ export default class Auth extends Component {
         axios({
             method: "POST",
             url: "http://127.0.0.1:5000/auth",
-            headers: {"content-type": "multipart/form-data"},          
+            headers: {"content-type": "applicaiton.json"},          
             data: this.buildForm(),
             withCredentials: true
         }).then(response => {
-            const result = response
-            console.log(result);
+            const result = response.data
 
-            return result
+            if (result == "Success") {
+                this.setState({
+                    logInStatus: true,
+                    popupSize: 200,
+                    popupColor: "#5cb85c",
+                    popupTextSize: "20px"
+                })
+
+                this.props.successfullLogin(this.state.logInStatus)
+                this.props.history.push("/", {logInStatus: true} )
+            } else if (result == "Wrong username or password") {
+                this.setState({
+                    popupSize: 200,
+                    popupColor: "#ff3333",
+                    popupTextSize: "20px"
+                })
+            }
         }).catch(error => {
             console.log("handleSubmit Error", error)
         });
@@ -69,8 +89,15 @@ export default class Auth extends Component {
                         maxLength={45} 
                         value={this.state.password}
                     />
-                    <button type='submit'className="loginButton">Log In</button>                
+                    <button type='submit'className="loginButton">Log In</button>
                 </form>
+
+                <Popup 
+                    messageType={this.state.logInStatus} 
+                    height={this.state.popupSize} 
+                    color={this.state.popupColor} 
+                    textSize={this.state.popupTextSize}
+                />
             </div>
         );
     }
