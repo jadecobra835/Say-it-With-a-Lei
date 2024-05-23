@@ -28,6 +28,10 @@ export default class Navigation extends Component {
                     <div className="linkWrapper darkTeal">
                         <NavLink to="/graduation" className="navLink">Graduation</NavLink>
                     </div>
+
+                    <div className="linkWrapper lightTeal">
+                        <NavLink to="/auth" className="navLink">Auth</NavLink>
+                    </div>
                 </div>
             </div>
         );

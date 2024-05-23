@@ -7,10 +7,6 @@ import graduation from '../../../static/assets/OrangeLei.jpg';
 import custom from '../../../static/assets/BlueGreenLei.jpg';
  
 export default class Home extends Component {
-    componentWillUnmount() {
-        console.log('About Me')
-    };
-
     render() {
         return (
             <div className="home">

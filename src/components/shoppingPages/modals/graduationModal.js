@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactModal from 'react-modal';
 import DropzoneComponent from "react-dropzone-component";
+import axios from 'axios';
 
 import "../../../../node_modules/react-dropzone-component/styles/filepicker.css";
 import "../../../../node_modules/dropzone/dist/min/dropzone.min.css";
@@ -12,7 +13,7 @@ export default class GraduationModal extends Component {
         super(props)
 
         this.state = {
-            apiUrl: "whatevermyurlis",
+            apiUrl: "http://127.0.0.1:5000/add-graduation",
             name: "",
             price: "",
             image: "",
@@ -27,6 +28,8 @@ export default class GraduationModal extends Component {
         this.djsConfig = this.djsConfig.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
+        this.buildForm = this.buildForm.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
 
         this.imageRef = React.createRef();
     };
@@ -34,14 +37,13 @@ export default class GraduationModal extends Component {
     componentConfig() {
         return {
             iconFiletypes: [".jpeg", ".png"],
-            showFiltetypeicon: true,
+            showFiletypeIcon: true,
             postUrl: "https://httpbin.org/post"
         };
     };
 
     djsConfig() {
         return {
-            // addRemoveLinks: true,
             maxFiles: 1
         };
     };
@@ -53,6 +55,8 @@ export default class GraduationModal extends Component {
     };
 
     handleDelete(event) {
+        event.preventDefault();
+
         this.setState({
             image: ""
         })
@@ -66,8 +70,66 @@ export default class GraduationModal extends Component {
         };
     };
 
-    handleSubmit(event) {
+    buildForm() {
+        let formData = new FormData();
+
+        formData.append("lei_item[name]", this.state.name);
+        formData.append("lei_item[price]", this.state.price);
+        formData.append("lei_item[color1]", this.state.color1);
+        formData.append("lei_item[image]", this.state.image, this.state.name)
+        formData.append("lei_item[type]", "graduation" )
+
+        if(this.state.description) {
+            formData.append("lei_item[description]", this.state.description);
+        }
+
+        if(this.state.color2) {
+            formData.append("lei_item[color2]", this.state.color2);
+        }
+
+        if(this.state.color3) {
+            formData.append("lei_item[color3]", this.state.color3);
+        }
+
+        if(this.state.color4) {
+            formData.append("lei_item[color4]", this.state.color4);
+        }
         
+        return formData;
+    }
+
+    handleSubmit(event) {
+        axios({
+            method: "POST",
+            url: this.state.apiUrl,
+            headers: {"content-type": "multipart/form-data"},          
+            data: this.buildForm(),
+            withCredentials: true
+        }).then(response => {
+            const result = response;
+
+            this.setState({
+                apiUrl: "http://127.0.0.1:5000/add-graduation",
+                name: "",
+                price: "",
+                image: "",
+                description: "",
+                color1: "red",
+                color2: "",
+                color3: "",
+                color4: "",
+            })
+
+            console.log(result.config.data)
+
+            this.imageRef.current.dropzone.removeAllFiles()
+
+            // console.log(result);
+        }).catch(error => {
+            console.log("graduationModal handleSubmit error", error);
+        });
+
+        // console.log('Form submitted')
         
         event.preventDefault();
     }
@@ -116,6 +178,7 @@ export default class GraduationModal extends Component {
                             value={this.state.color2}
                             onChange={this.handleChange}
                         >
+                            <option value="">None</option>
                             <option value="red">Red</option>
                             <option value="orange">Orange</option>
                             <option value="yellow">Yellow</option>
@@ -131,6 +194,7 @@ export default class GraduationModal extends Component {
                             value={this.state.color3}
                             onChange={this.handleChange}
                         >
+                            <option value="">None</option>
                             <option value="red">Red</option>
                             <option value="orange">Orange</option>
                             <option value="yellow">Yellow</option>
@@ -146,6 +210,7 @@ export default class GraduationModal extends Component {
                             value={this.state.color4}
                             onChange={this.handleChange}
                         >
+                            <option value="">None</option>
                             <option value="red">Red</option>
                             <option value="orange">Orange</option>
                             <option value="yellow">Yellow</option>
@@ -165,16 +230,18 @@ export default class GraduationModal extends Component {
                             onChange={this.handleChange}
                         />
 
+                        <DropzoneComponent
+                            name="dropzone"
+                            ref={this.imageRef}
+                            config={this.componentConfig()}
+                            djsConfig={this.djsConfig()}
+                            eventHandlers={this.handleImage()}
+                        >
+                        </DropzoneComponent>
+                        <button onClick={this.handleDelete}>Remove Links</button>
+                        <button type='submit'>Save</button>
                     </form>
-                    <DropzoneComponent
-                        name="dropzone"
-                        ref={this.imageRef}
-                        config={this.componentConfig()}
-                        djsConfig={this.djsConfig()}
-                        eventHandlers={this.handleImage()}
-                    >
-                    </DropzoneComponent>
-                    <button onClick={this.handleDelete}>Remove Links</button>
+
                 </ReactModal>
             </div>
         );
