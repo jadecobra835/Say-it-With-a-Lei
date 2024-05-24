@@ -72,11 +72,12 @@ export default class Auth extends Component {
     render() {
         return (
             <div className="authPage">
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={this.handleSubmit} className="authForm">
                     <input 
                         type="text" 
                         onChange={this.handleChange} 
                         name="userName"
+                        className="userName"
                         placeholder='Username' 
                         maxLength={45} 
                         value={this.state.userName}
@@ -86,6 +87,8 @@ export default class Auth extends Component {
                         type='password' 
                         onChange={this.handleChange} 
                         name="password" 
+                        className="password"
+                        placeholder='Password'
                         maxLength={45} 
                         value={this.state.password}
                     />
