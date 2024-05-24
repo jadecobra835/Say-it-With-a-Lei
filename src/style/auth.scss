@@ -55,6 +55,7 @@
         transition: ease-in-out 0.5s;
 
         &:hover {
+            background-color: $green;
             box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
         }
     }
