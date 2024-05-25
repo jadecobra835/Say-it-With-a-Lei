@@ -1,0 +1,26 @@
+.paymentForm{
+    margin-left: 25%;
+    margin-right: 25%;
+
+    .FormGroup {
+        padding: 0;
+        border-style: none;
+        border-bottom: $green 2px solid;
+        background-color: transparent;
+        will-change: opacity, transform;
+
+        .FormRow {
+            display: flex;
+            align-items: center;
+
+            .StripeElement--webkit-autofill {
+                background: transparent !important;
+            }
+
+            .StripeElement {
+                width: 100%;
+                padding: 11px 15px;
+            }
+        }
+    }
+}

@@ -19,6 +19,8 @@ body {
 }
 
 .subHeading {
+    display: flex;
+    justify-content: center;
     color: $light-teal;
     font-family: 'Roboto', sans-serif;
     font-size: 20px;
@@ -31,3 +33,4 @@ body {
 @import "auth.scss";
 @import "custom.scss";
 @import "colorItem.scss";
+@import "payment.scss";

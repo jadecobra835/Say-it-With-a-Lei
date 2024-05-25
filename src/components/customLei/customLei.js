@@ -139,6 +139,25 @@ export default class Custom extends Component {
         this.setState({
             [this.state.activeColorNumber]: this.state.colors[id]
         })
+
+        if (this.state.activeColorNumber == "color1") {
+            this.setState({
+                activeColorNumber: "color2"
+            })
+
+        } else if (this.state.activeColorNumber == "color2") {
+            this.setState({
+                activeColorNumber: "color3"
+            })
+        } else if (this.state.activeColorNumber == "color3") {
+            this.setState({
+                activeColorNumber: "color4"
+            })
+        } else if (this.state.activeColorNumber == "color4") {
+            this.setState({
+                activeColorNumber: ""
+            })
+        }
     }
 
 

@@ -1,8 +1,12 @@
+.navBar {
+    position: sticky;
+}
+
+
 .navWrapper {
     height: 90px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    justify-content: space-between;
     margin-top: 10px;
 
     .logoWrapper {
@@ -11,44 +15,63 @@
         }
     }
 
-    .linksWrapper {
+    .dropdownWrapper {
         display: grid;
-        grid-template-rows: 1fr, 1fr;
-        position: absolute;
+        grid-template-rows: min-content;
         justify-self: right;
+        justify-items: right;
+        width: fit-content;
 
-        .linkWrapper {
-            width: 230px;
-            height: 50px;
-            display: flex;
-            justify-content: center;
+        .navBarIcon {
+            display: grid;
+            justify-content: end;
             align-items: center;
-            transition: 0.5s ease-in-out;
+            font-size: 40px;
+            color: $light-teal;
+            margin-right: 30px;
+            width: fit-content;
+            height: 90px;
+        }
 
-            &:hover {
-                background-color: $green;
-            }
-
-            a {
-                text-decoration: none;
-                color: black; 
-            }
-
-            .navLink {
-                width: 100%;
-                height: 100%;
-                display: grid;
+        .linksWrapper {
+            width: fit-content;
+            display: grid;
+            grid-template-rows: auto;
+            justify-self: right;
+    
+            .linkWrapper {
+                width: 230px;
+                height: 50px;
+                display: flex;
                 justify-content: center;
-                align-content: center;
+                align-items: center;
+                transition: 0.5s ease-in-out;
+    
+                &:hover {
+                    background-color: $green;
+                }
+    
+                a {
+                    text-decoration: none;
+                    color: white; 
+                }
+    
+                .navLink {
+                    width: 100%;
+                    height: 100%;
+                    display: grid;
+                    justify-content: center;
+                    align-content: center;
+                }
             }
-        }
-
-        .darkTeal {
-            background-color: $dark-teal;
-        }
-
-        .lightTeal {
-            background-color: $light-teal;
+    
+            .darkTeal {
+                background-color: $dark-teal;
+            }
+    
+            .lightTeal {
+                background-color: $light-teal;
+            }
         }
     }
 }

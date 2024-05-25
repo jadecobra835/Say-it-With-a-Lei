@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 
-import headshot from '../../../static/assets/Headshot.jpg';
+import headshot from '../../../static/assets/HomeHeadshot.jpg';
 import weddingAndBaptism from '../../../static/assets/BlueGreenLei.jpg';
 import graduation from '../../../static/assets/OrangeLei.jpg';
 import custom from '../../../static/assets/BlueGreenLei.jpg';
