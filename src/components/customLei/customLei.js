@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle } from '@fortawesome/free-regular-svg-icons'
-import { faCircle as solidCircle } from '@fortawesome/free-solid-svg-icons'
-import { faCircleCheck } from '@fortawesome/free-solid-svg-icons'
+import { faCircleCheck , faCircle as solidCircle } from '@fortawesome/free-solid-svg-icons'
+
 
 import ColorItem from './colorItem';
 

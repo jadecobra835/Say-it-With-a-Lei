@@ -1,0 +1,33 @@
+.heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+    margin-bottom: 30px;
+
+    h1 {
+        width: fit-content;
+    }
+}
+
+.leiItemsWrapper {
+    display: grid;
+    grid-template-columns: 230px 230px 230px 230px 230px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.modalButton {
+    font-size: 40px;
+    color: $light-teal;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+
+    svg {
+        &:hover {
+            color: $dark-teal;
+            cursor: pointer;
+        }
+    }
+}
