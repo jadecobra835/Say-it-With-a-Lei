@@ -1,36 +1,66 @@
-.leiItem {
-    height: 310px;
-    background-color: #F0F0F0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 60px;
-    border-radius: 5px;
-    transition: ease-in-out 0.5s;
+.leiItemWrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 20px;
 
-    &:hover {
-        box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.5);
-    }
-
-    .leiItemImageWrapper {
-        width: 200px;
-        height: 200px;
-        margin-top: 15px;
+    .leftColumn {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
         img {
-            width: 100%;
-            height: 100%;
+            width: 77%;
         }
     }
 
-    .nameOfLei {
-        font-size: 22px;
-        color: black;
-        margin: 10px;
-    }
+    .rightColumn {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin-right: 60px;
 
-    .leiPrice {
-        font-size: 22px;
-        color: black;
+        .leiItemTop {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            .heading {
+                margin: 0px;
+            }
+
+            .leiPrice {
+                display: flex;
+                align-items: center;
+                font-size: 2.1em;
+                color: black;
+            }
+        }
+
+        .leiItemBody {
+            margin-left: 30px;
+            margin-top: 20px;
+            justify-content: left;
+            width: 100%;
+        }
+
+        .leiItemBottom {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: end;
+            align-items: center;
+
+            .qty-selector {
+                @include qty-selector();
+            }
+
+            .addToCart {
+                @include submitButton();
+                width: 70%;
+            }
+        }
     }
 }

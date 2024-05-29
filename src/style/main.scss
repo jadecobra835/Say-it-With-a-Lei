@@ -1,32 +1,6 @@
 @import "variables.scss";
-
-body {
-    margin: 0px;
-    font-family: 'Roboto', sans-serif;
-    font-size: 16px;
-    color: $grey;
-}
-
-.heading {
-    color: $orange;
-    font-family: 'Spicy Rice', sans-serif;
-    font-size: 25px;
-    margin-bottom: 20px;
-
-    h1 {
-        margin: 0px;
-    }
-}
-
-.subHeading {
-    display: flex;
-    justify-content: center;
-    color: $light-teal;
-    font-family: 'Roboto', sans-serif;
-    font-size: 20px;
-    font-weight: 600;
-}
-
+@import "base.scss";
+@import "mixins.scss";
 @import "home.scss";
 @import "navbar.scss";
 @import "aboutMe.scss";
@@ -35,5 +9,6 @@ body {
 @import "colorItem.scss";
 @import "payment.scss";
 @import "graduation.scss";
-@import "leiItem.scss";
+@import "leiItemThumb.scss";
 @import "modal.scss";
+@import "leiItem.scss";

@@ -3,7 +3,7 @@ import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
 
-import LeiItem from './leiItem';
+import LeiItemThumb from './leiItemThumb';
 import GraduationModal from './modals/graduationModal';
 
  
@@ -42,7 +42,7 @@ export default class Graduation extends Component {
     leiItems() {
         return this.state.allLeis.map(item => {
             return (
-                <LeiItem
+                <LeiItemThumb
                     key={item.id}
                     item={item}
                 />

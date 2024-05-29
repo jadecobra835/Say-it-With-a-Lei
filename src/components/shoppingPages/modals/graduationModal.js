@@ -234,7 +234,7 @@ export default class GraduationModal extends Component {
                         </div>
 
                         <div className="row5">
-                            <button onClick={this.handleDelete}>Remove Image</button>
+                            <button onClick={this.handleDelete} className="deleteImage">Remove Image</button>
                             <button type='submit'>Save</button>
                         </div>
                     </form>

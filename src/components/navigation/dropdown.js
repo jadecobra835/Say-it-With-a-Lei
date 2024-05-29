@@ -60,11 +60,16 @@ class NavLinks extends Component {
                         </div>
 
                         <div className="linkWrapper lightTeal">
-                            <NavLink to="/auth" className="navLink">Auth</NavLink>
+                            <NavLink to="/cart" className="navLink">Cart</NavLink>  
+                            
                         </div>
 
                         <div className="linkWrapper darkTeal">
-                            <NavLink to="/payment" className="navLink">Payment</NavLink>
+                            <NavLink to="/payment" className="navLink">Payment</NavLink> 
+                        </div>
+
+                        <div className="linkWrapper lightTeal">
+                            <NavLink to="/auth" className="navLink">Auth</NavLink>
                         </div>
                     </div>
                     :
