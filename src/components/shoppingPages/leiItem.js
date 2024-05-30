@@ -12,7 +12,17 @@ export default class LeiItem extends Component {
 
         this.getLeis = this.getLeis.bind(this);
         this.handleQtyChange = this.handleQtyChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     };
+
+    handleSubmit() {
+        const formData = {
+            "leiItem": this.state.leiItem,
+            "qty": this.state.qty
+        }
+        
+        this.props.addToCart(formData)
+    }
 
     componentDidMount() {
         this.getLeis()
@@ -38,7 +48,7 @@ export default class LeiItem extends Component {
     };
 
     render() {
-        const  {
+        const {
             id,
             name,
             price,

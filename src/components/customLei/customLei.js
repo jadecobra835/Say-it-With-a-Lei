@@ -7,8 +7,8 @@ import { faCircleCheck , faCircle as solidCircle } from '@fortawesome/free-solid
 import ColorItem from './colorItem';
 
 export default class Custom extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
 
         this.state = {
             size: "",
@@ -73,23 +73,19 @@ export default class Custom extends Component {
 
 
     buildForm() {
-        const formData = new FormData
         const price = this.state.qty * this.state.weavePrice;
-        
-        formData.append("size", this.state.size)
-        formData.append("color1", JSON.stringify(this.state.color1))
-        formData.append("color2", JSON.stringify(this.state.color2))
 
-        if (this.state.color3.id !== "none") {
-            formData.append("color3", JSON.stringify(this.state.color1));
-        };
-
-        if (this.state.color4.id !== "none") {
-            formData.append("color4", JSON.stringify(this.state.color1));
-        };
-
-        formData.append("qty", this.state.qty);
-        formData.append("price", price)
+        const formData = {
+            "type": "custom",
+            "name": "Custom",
+            "size": this.state.size,
+            "color1": this.state.color1,
+            "color2": this.state.color2,
+            "color3": this.state.color3,
+            "color4": this.state.color4,
+            "qty": this.state.qty,
+            "price": price
+        }
 
         return formData;
     }
@@ -97,7 +93,7 @@ export default class Custom extends Component {
 
     handleSubmit() {
         const form = this.buildForm()
-        console.log(form)
+        this.props.addToCart(form)
     }
 
 

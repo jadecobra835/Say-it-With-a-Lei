@@ -8,8 +8,8 @@ import GraduationModal from './modals/graduationModal';
 
  
 export default class Graduation extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
 
         this.state = {
             modalStatus: false,
