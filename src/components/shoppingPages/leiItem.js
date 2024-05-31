@@ -22,6 +22,8 @@ export default class LeiItem extends Component {
         }
         
         this.props.addToCart(formData)
+
+        this.props.history.push('/cart')
     }
 
     componentDidMount() {

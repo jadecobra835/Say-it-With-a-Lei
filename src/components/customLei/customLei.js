@@ -91,7 +91,21 @@ export default class Custom extends Component {
 
     handleSubmit() {
         const form = this.buildForm()
+
+        this.setState({
+                size: "",
+                color1: {id: "none",colorName: "Choose", colorHex: "transparent"},
+                color2: {id: "none",colorName: "Choose", colorHex: "transparent"},
+                color3: {id: "none", colorName: "Choose", colorHex: "transparent"},
+                color4: {id: "none", colorName: "Choose", colorHex: "transparent"},
+                qty: 1,
+                weavePrice: 0,
+                activeColorNumber: "",
+        })
+
         this.props.addToCart(form)
+
+        this.props.history.push('/cart')
     }
 
 

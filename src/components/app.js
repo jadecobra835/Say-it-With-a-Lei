@@ -18,13 +18,15 @@ export default class App extends Component {
 
     this.state = {
       loggedInStatus: false,
-      cartItems: []
+      cartItems: [],
+      grandTotal: 0
     }
 
     this.successfullLogin = this.successfullLogin.bind(this);
     this.addToCart = this.addToCart.bind(this);
     this.handleCartQtyChange = this.handleCartQtyChange.bind(this);
     this.handleCartRemoveItem = this.handleCartRemoveItem.bind(this);
+    this.totalCartPrice = this.totalCartPrice.bind(this);
   }
 
   componentDidMount() {
@@ -37,6 +39,22 @@ export default class App extends Component {
         cartItems: cart
       })
     } 
+  }
+
+  totalCartPrice() {
+    const currentCart = this.state.cartItems;
+    let currentPrice = 0
+
+    currentCart.map(item => {
+      if (item["type"] == "custom") {
+        currentPrice = (currentPrice + (item.qty * item.price))
+      } else {
+        const correctItem = item.leiItem
+        currentPrice = (currentPrice + (correctItem.price * item.qty))
+      }
+    })
+
+    return currentPrice
   }
 
   handleCartRemoveItem(index) {
@@ -119,6 +137,7 @@ export default class App extends Component {
                   cart={this.state.cartItems}
                   handleCartQtyChange={this.handleCartQtyChange}
                   handleCartRemoveItem={this.handleCartRemoveItem}
+                  totalPrice={this.totalCartPrice}
                 />
               )}
             />

@@ -5,9 +5,19 @@ export default class Cart extends Component {
     constructor(props) {
         super(props)
 
+        this.state = {
+            grandTotal: 0
+        }
+
         this.renderCartItems = this.renderCartItems.bind(this);
         this.removeFromCart = this.removeFromCart.bind(this);
         this.changeQty = this.changeQty.bind(this)
+        this.handleCheckout = this.handleCheckout.bind(this);
+    }
+
+    handleCheckout() {
+        const total = this.props.totalPrice()
+        console.log('Checkout', total)
     }
 
     changeQty(item, qty) {
@@ -22,8 +32,6 @@ export default class Cart extends Component {
 
     renderCartItems() {
         if (this.props.cart.length !== 0) {
-            console.log("cart", this.props.cart)
-
             return this.props.cart.map(item => {
                 return <CartItem 
                     item={item}
@@ -47,6 +55,14 @@ export default class Cart extends Component {
 
                 <div className="cartItems">
                     { this.renderCartItems() }
+                </div>
+
+                <div className="totalPrice" id="totalPrice">
+                    <h1>{`$${this.props.totalPrice()}.00 `}</h1>
+                </div>
+
+                <div className="checkoutBtn">
+                    <button onClick={this.handleCheckout}>Checkout</button>
                 </div>
             </div>
         );

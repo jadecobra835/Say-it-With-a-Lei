@@ -13,7 +13,6 @@ export default class Navigation extends Component {
     render() {    
         return (
             <div className="navWrapper">
-
                 <div className="logoWrapper">
                     <NavLink exact to="/" className="navLink"><img src={logo} /></NavLink>
                 </div>

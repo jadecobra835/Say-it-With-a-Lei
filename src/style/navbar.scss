@@ -1,17 +1,19 @@
 .navBar {
     position: sticky;
+    top: 0;
+    background-color: white;
 }
 
 
 .navWrapper {
-    height: 90px;
+    height: 110px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    margin-top: 10px;
     margin-left: 30px;
 
     .logoWrapper {
         img {
+            margin-top: 10px;
             height: 90px;
         }
     }
@@ -22,6 +24,7 @@
         justify-self: right;
         justify-items: right;
         width: fit-content;
+        margin-top: 10px;
 
         .navBarIcon {
             display: grid;
