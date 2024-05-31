@@ -73,8 +73,6 @@ export default class Custom extends Component {
 
 
     buildForm() {
-        const price = this.state.qty * this.state.weavePrice;
-
         const formData = {
             "type": "custom",
             "name": "Custom",
@@ -84,7 +82,7 @@ export default class Custom extends Component {
             "color3": this.state.color3,
             "color4": this.state.color4,
             "qty": this.state.qty,
-            "price": price
+            "price": this.state.weavePrice
         }
 
         return formData;
@@ -204,7 +202,7 @@ export default class Custom extends Component {
         return (
             <div className="customLeiPage">
                 <div className="heading">
-                    <h1>Make Your Own</h1>
+                    <h1>Design Your Own</h1>
                 </div>
 
                 <div className="subHeading">

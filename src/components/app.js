@@ -23,6 +23,8 @@ export default class App extends Component {
 
     this.successfullLogin = this.successfullLogin.bind(this);
     this.addToCart = this.addToCart.bind(this);
+    this.handleCartQtyChange = this.handleCartQtyChange.bind(this);
+    this.handleCartRemoveItem = this.handleCartRemoveItem.bind(this);
   }
 
   componentDidMount() {
@@ -31,16 +33,41 @@ export default class App extends Component {
     if (cartData !== null) {
       const cart = JSON.parse(cartData)
 
-      cart.map(item => {
-        this.state.cartItems.push(item)
+      this.setState({
+        cartItems: cart
       })
     } 
   }
 
-  successfullLogin(state) {
+  handleCartRemoveItem(index) {
+    const currentCart = this.state.cartItems
+    currentCart.splice(index, 1)
+
     this.setState({
-      loggedInStatus: state
+      cartItems: currentCart
     })
+
+    if (localStorage.getItem("cart") !== null) {
+        localStorage.removeItem("cart")
+    }
+      
+    localStorage.setItem("cart", JSON.stringify(this.state.cartItems))
+  }
+
+  handleCartQtyChange(index, qty) {
+    let newCartItems = this.state.cartItems
+    const newQty = parseInt(qty)
+    newCartItems[index].qty = newQty
+
+    this.setState({
+      cartItems: newCartItems
+    })
+
+    if (localStorage.getItem("cart") !== null) {
+      localStorage.removeItem("cart")
+    }
+
+    localStorage.setItem("cart", JSON.stringify(this.state.cartItems))
   }
 
   addToCart(cartItem) {
@@ -51,6 +78,12 @@ export default class App extends Component {
     }
 
     localStorage.setItem("cart", JSON.stringify(this.state.cartItems))
+  }
+
+  successfullLogin(state) {
+    this.setState({
+      loggedInStatus: state
+    })
   }
 
   render() {
@@ -84,6 +117,8 @@ export default class App extends Component {
                 <Cart 
                   {...props}
                   cart={this.state.cartItems}
+                  handleCartQtyChange={this.handleCartQtyChange}
+                  handleCartRemoveItem={this.handleCartRemoveItem}
                 />
               )}
             />

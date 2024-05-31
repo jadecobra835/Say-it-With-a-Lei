@@ -52,7 +52,7 @@ class NavLinks extends Component {
                         </div>
 
                         <div className="linkWrapper lightTeal">
-                            <NavLink to="/make-your-own" className="navLink">Make Your Own</NavLink>
+                            <NavLink to="/make-your-own" className="navLink">Design Your Own</NavLink>
                         </div>
 
                         <div className="linkWrapper darkTeal">

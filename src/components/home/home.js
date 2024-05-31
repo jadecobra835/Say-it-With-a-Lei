@@ -36,7 +36,7 @@ export default class Home extends Component {
                         <NavLink to="make-your-own">
                             <div className="imageLink" style={{backgroundImage: `url(${custom})`}}>
                                 <div className="imageButton">
-                                    <p>Make Your Own</p>
+                                    <p>Design Your Own</p>
                                 </div>
                             </div>
                         </NavLink>

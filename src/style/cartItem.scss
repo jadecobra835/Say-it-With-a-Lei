@@ -1,0 +1,95 @@
+.cartItemWrapper {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: 1fr 2.5fr 0.5fr;
+    width: 50%;
+    background-color: #F0F0F0;
+
+    .cartItemImageWrapper {
+        width: 200px;
+        height: 200px;
+        margin: 10px;
+
+        img {
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+    .cartItemOtherContent {
+        width: 100%;
+        margin: 10px 10px 10px 20px;
+        display: grid;
+        grid-template-rows: 0.6fr 2fr 1fr;
+        justify-content: space-between;
+
+        .cartItemName {
+            color: black;
+            font-size: 20px;
+            font-weight: 600;
+            color: $light-teal;
+        }
+
+        .center-content {
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            .cartItemDescription {
+                color: black;
+                margin-left: 10px;
+                width: 100%;
+                height: 100%;
+
+                .colorList {
+                    display: flex;
+                    flex-direction: column;
+                    
+                    div {
+                        margin: 3px 0px;
+                    }
+                }
+            }
+        }
+
+        .bottom-content {
+            display: flex;
+            flex-direction: row;
+            align-items: end;
+            position: relative;
+            width: 400px;
+
+            .qty-selector {
+                @include qty-selector();
+                height: fit-content;
+                margin: 0px;
+               
+                select {
+                    background-color: #CBCACA;
+                }
+            }
+
+            .removeCartItem {
+                margin-left: 40px;
+                height: 30px;
+                color: #ff3333;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    .price {
+        color: black;
+        font-size: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
