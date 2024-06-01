@@ -8,7 +8,7 @@ import AboutMe from './aboutMe/aboutMe.js';
 import Custom from './customLei/customLei.js';
 import Graduation from './shoppingPages/graduation.js';
 import Auth from './auth/auth.js';
-import Payment from './payment/payment.js';
+import Payment from './payment/paymentFormContainer.js';
 import LeiItem from './shoppingPages/leiItem.js';
 import Cart from './pages/cart.js';
 
@@ -54,7 +54,8 @@ export default class App extends Component {
       }
     })
 
-    return currentPrice
+    console.log(parseInt(currentPrice))
+    return parseInt(currentPrice)
   }
 
   handleCartRemoveItem(index) {
@@ -128,7 +129,16 @@ export default class App extends Component {
             
             <Route exact path="/graduation" component={Graduation} />
             
-            <Route path="/payment" component={Payment} />
+            <Route 
+              path="/payment" 
+              render={props => (
+                <Payment
+                  {...props}
+                  totalPrice={this.totalCartPrice}
+                />
+              )} 
+            />
+
             <Route 
               path="/cart" 
               render={props => (

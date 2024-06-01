@@ -16,8 +16,7 @@ export default class Cart extends Component {
     }
 
     handleCheckout() {
-        const total = this.props.totalPrice()
-        console.log('Checkout', total)
+        this.props.history.push('/payment')
     }
 
     changeQty(item, qty) {

@@ -1,0 +1,21 @@
+.paymentFormWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .paymentForm {
+        width: 400px;
+
+        .subHeading {
+            margin: 20px 0px;
+        }
+
+        .submitBtn {
+            @include submitButton();
+            width: 100%;
+            margin-left: 0px;
+            background-color: $orange;
+        }
+    }
+}
