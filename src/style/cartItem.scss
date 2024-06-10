@@ -56,7 +56,6 @@
             display: flex;
             flex-direction: row;
             align-items: end;
-            width: 400px;
 
             .qty-selector {
                 @include qty-selector();
@@ -89,5 +88,6 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        margin-right: 10px;
     }
 }

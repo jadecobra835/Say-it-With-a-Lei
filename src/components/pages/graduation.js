@@ -3,8 +3,8 @@ import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
 
-import LeiItemThumb from './leiItemThumb';
-import GraduationModal from './modals/graduationModal';
+import LeiItemThumb from '../shoppingPages/leiItemThumb';
+import GraduationModal from '../shoppingPages/modals/newLeiModal';
 
  
 export default class Graduation extends Component {

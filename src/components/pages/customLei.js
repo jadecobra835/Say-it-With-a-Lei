@@ -4,7 +4,7 @@ import { faCircle } from '@fortawesome/free-regular-svg-icons'
 import { faCircleCheck , faCircle as solidCircle } from '@fortawesome/free-solid-svg-icons'
 
 
-import ColorItem from './colorItem';
+import ColorItem from '../customLei/colorItem';
 
 export default class Custom extends Component {
     constructor(props) {

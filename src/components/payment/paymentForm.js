@@ -3,7 +3,7 @@ import {useStripe, useElements, PaymentElement, AddressElement} from '@stripe/re
 
 const options = {mode: 'shipping'}
 
-export default function PaymentForm() {
+export default function PaymentForm(props) {
     const stripe = useStripe();
     const elements = useElements();
 
@@ -36,14 +36,21 @@ export default function PaymentForm() {
         // Create the PaymentIntent and obtain clientSecret
         const res = await fetch("http://localhost:4000/create-intent", {
             method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                "amount": (props.totalPrice * 100),
+            }),
+            credentials: 'include'
         })
-
+        
         const {client_secret: clientSecret} = await res.json()
 
         // Confirm the PaymentIntent using the details collected by the Payment Element
         const {error} = await stripe.confirmPayment({
             elements,
-            clientSecret,
+            clientSecret: clientSecret,
             confirmParams: {
                 return_url: 'http://localhost:3000/'
             },
@@ -77,10 +84,15 @@ export default function PaymentForm() {
 
                 <PaymentElement />
 
+                <div className="total">
+                    {`Total: $${props.totalPrice}.00`}
+                </div>
+
+                {errorMessage && <div className="paymentFormErrorMessage">{errorMessage}</div>}
+
                 <button type="submit" className="submitBtn" disabled={!stripe || loading}>
                     Complete Checkout
                 </button>
-                {errorMessage && <div>{errorMessage}</div>}
             </form>
         </div>
     )

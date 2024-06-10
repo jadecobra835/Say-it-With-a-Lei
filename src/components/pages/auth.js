@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-import Popup from './logInPopup';
+import Popup from '../auth/logInPopup';
  
 export default class Auth extends Component {
     constructor(props) {

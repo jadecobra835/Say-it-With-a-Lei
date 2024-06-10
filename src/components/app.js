@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import '@stripe/stripe-js';
 
-import Home from './Home/home.js';
+import Home from './pages/home.js';
 import Navigation from './navigation/nav-bar';
-import AboutMe from './aboutMe/aboutMe.js';
-import Custom from './customLei/customLei.js';
-import Graduation from './shoppingPages/graduation.js';
-import Auth from './auth/auth.js';
-import Payment from './payment/paymentFormContainer.js';
+import AboutMe from './pages/aboutMe.js';
+import Custom from './pages/customLei.js';
+import Graduation from './pages/graduation.js';
+import Auth from './pages/auth.js';
+import Payment from './pages/paymentFormContainer.js';
 import LeiItem from './shoppingPages/leiItem.js';
 import Cart from './pages/cart.js';
 
@@ -19,7 +19,6 @@ export default class App extends Component {
     this.state = {
       loggedInStatus: false,
       cartItems: [],
-      grandTotal: 0
     }
 
     this.successfullLogin = this.successfullLogin.bind(this);
@@ -31,10 +30,8 @@ export default class App extends Component {
 
   componentDidMount() {
     const cartData = localStorage.getItem("cart")
-
     if (cartData !== null) {
       const cart = JSON.parse(cartData)
-
       this.setState({
         cartItems: cart
       })
@@ -54,8 +51,9 @@ export default class App extends Component {
       }
     })
 
-    console.log(parseInt(currentPrice))
-    return parseInt(currentPrice)
+    if (currentPrice !== 0) {
+      return parseInt(currentPrice);
+    } 
   }
 
   handleCartRemoveItem(index) {

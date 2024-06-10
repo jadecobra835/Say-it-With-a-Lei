@@ -2,16 +2,20 @@ import React from 'react';
 import { Elements } from "@stripe/react-stripe-js"
 import { loadStripe } from '@stripe/stripe-js';
 
-import PaymentForm from './paymentForm';
+import PaymentForm from '../payment/paymentForm';
 
 const stripePromise = loadStripe("pk_test_51PK34NGDzZ4Hs4RWlUWqucvN3XbzvduTjKSSxf3p7G7xItTcoHwId5sb3Ywl7EbZONEtbo5yQ18VgOWkNIPePLB900uPVaXNQk")
 
 export default function Payment(props) {
-    const totalPrice = props.totalPrice()
+    let totalPrice = 1
+
+    if (props.totalPrice() !== undefined) {
+        totalPrice = props.totalPrice()
+    }
 
     const options = {
         mode: 'payment',
-        amount: 1099,
+        amount: (totalPrice * 100),
         currency: 'usd',
         appearance: {
             variables: {
@@ -24,10 +28,6 @@ export default function Payment(props) {
             },
 
             rules: {
-                '.Label': {
-                    opacity: '0'
-                },
-
                 '.Tab': {
                     border: '2px solid #AAD056',
                     transition: 'ease-in-out 0.5s'
@@ -76,7 +76,7 @@ export default function Payment(props) {
     
     return (
         <Elements stripe={stripePromise} options={options}>
-            <PaymentForm />
+            <PaymentForm totalPrice={totalPrice}/>
         </Elements>
     );
 }

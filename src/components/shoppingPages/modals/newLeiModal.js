@@ -112,7 +112,7 @@ export default class GraduationModal extends Component {
             this.imageRef.current.dropzone.removeAllFiles()
 
         }).catch(error => {
-            console.log("graduationModal handleSubmit error", error);
+            console.log("newLeiModal handleSubmit error", error);
         });
         
         event.preventDefault();

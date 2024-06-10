@@ -41,7 +41,7 @@ export default class Cart extends Component {
                 />
             })
         } else {
-            return <div>No Cart Items</div>
+            return <div className="emptyCart">No Cart Items</div>
         }
     }
 
@@ -57,7 +57,11 @@ export default class Cart extends Component {
                 </div>
 
                 <div className="totalPrice" id="totalPrice">
-                    <h1>{`$${this.props.totalPrice()}.00 `}</h1>
+                    <h1>{ this.props.totalPrice() !== undefined ? 
+                        `$${this.props.totalPrice()}.00 `
+                        :
+                        `$00.00 `
+                    }</h1>
                 </div>
 
                 <div className="checkoutBtn">

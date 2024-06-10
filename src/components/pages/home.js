@@ -64,7 +64,7 @@ export default class Home extends Component {
 
                 <div className="locationWrapper">
                     <div className="embedWrapper homepageImageWrapper">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1673.9817195049607!2d-111.63591757214341!3d40.168268496361065!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x874d97d966fbf59d%3A0x86fadb04b9883c82!2sMerit%20Preparatory%20Academy!5e0!3m2!1sen!2sus!4v1715181848706!5m2!1sen!2sus" width="600" height="450" style={{border: 0}} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48785.76090162136!2d-111.6512880666664!3d40.16210326382978!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x874d962ee1ee8d05%3A0x5678ae5a009f7c7f!2sSpringville%2C%20UT!5e0!3m2!1sen!2sus!4v1717902774553!5m2!1sen!2sus" width="600" height="450" style={{border: 0}}allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
                     </div>
 
                     <div className="locationTextWrapper">
