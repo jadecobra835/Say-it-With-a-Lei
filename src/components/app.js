@@ -7,6 +7,7 @@ import Navigation from './navigation/nav-bar';
 import AboutMe from './pages/aboutMe.js';
 import Custom from './pages/customLei.js';
 import Graduation from './pages/graduation.js';
+import WeddingAndBaptism from './pages/weddingAndBaptism.js';
 import Auth from './pages/auth.js';
 import Payment from './pages/paymentFormContainer.js';
 import LeiItem from './shoppingPages/leiItem.js';
@@ -125,7 +126,25 @@ export default class App extends Component {
               )}
             />
             
-            <Route exact path="/graduation" component={Graduation} />
+            <Route 
+              exact path="/graduation" 
+              render={props => (
+                <Graduation 
+                  {...props}
+                  loggedInStatus={this.state.loggedInStatus} 
+                />
+              )} 
+            />
+
+            <Route 
+              exact path="/wedding-and-baptism" 
+              render={props => (
+                <WeddingAndBaptism 
+                  {...props}
+                  loggedInStatus={this.state.loggedInStatus} 
+                />
+              )} 
+            />  
             
             <Route 
               path="/payment" 
@@ -163,6 +182,16 @@ export default class App extends Component {
 
             <Route 
               exact path="/graduation/:slug" 
+              render={props => (
+                <LeiItem 
+                  {...props}
+                  addToCart={this.addToCart}
+                />
+              )}
+            />
+
+            <Route 
+              exact path="/wedding-and-baptism/:slug" 
               render={props => (
                 <LeiItem 
                   {...props}

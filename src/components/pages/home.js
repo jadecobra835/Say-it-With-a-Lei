@@ -12,7 +12,7 @@ export default class Home extends Component {
             <div className="home">
                 <div className="pictureLinksWrapper">
                     <div className="pictureLink">
-                        <NavLink to="about-me">
+                        <NavLink to="wedding-and-baptism">
                             <div className="imageLink" style={{backgroundImage: `url(${weddingAndBaptism})`}}>
                                 <div className="imageButton">
                                     <p>Wedding & Baptism</p>

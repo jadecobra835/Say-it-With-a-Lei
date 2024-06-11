@@ -38,5 +38,19 @@
         font-size: 22px;
         color: black;
         text-decoration: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .trashIcon {
+        color: #ff3333;
+        font-size: 22px;
+        margin-left: 20px;
+        transition: ease-in-out 0.5s;
+
+        &:hover {
+            color: #E70707;
+        }
     }
 }

@@ -7,7 +7,7 @@ import LeiItemThumb from '../shoppingPages/leiItemThumb';
 import NewLeiModal from '../shoppingPages/modals/newLeiModal';
 
  
-export default class Graduation extends Component {
+export default class WeddingAndBaptism extends Component {
     constructor(props) {
         super(props)
 
@@ -27,7 +27,7 @@ export default class Graduation extends Component {
 
     getLeis() {
         axios
-            .get('http://127.0.0.1:5000/get-preset-leis/graduation')
+            .get('http://127.0.0.1:5000/get-preset-leis/wedding-and-baptism')
             .then(response => {
                 const result = response.data
                 this.setState({
@@ -68,13 +68,12 @@ export default class Graduation extends Component {
         return (
             <div>
                 <div className="heading">
-                    <h1>Graduation</h1>
+                    <h1>Wedding & Baptism</h1>
                 </div>
 
                 <div className="leiItemsWrapper">
                     {this.leiItems()}
                 </div>
-
 
                 { this.props.loggedInStatus == true ? 
                     <div>
@@ -82,10 +81,10 @@ export default class Graduation extends Component {
                             <FontAwesomeIcon icon={faCirclePlus} onClick={this.modalStatus} />
                         </div>
 
-                        <NewLeiModal 
+                        <NewLeiModal
                             modalStatus={this.state.modalStatus}  
                             modalOff={this.modalStatus}
-                            type="graduation"
+                            type="wedding-and-baptism"
                             update={() => this.getLeis()}
                         />
                     </div>

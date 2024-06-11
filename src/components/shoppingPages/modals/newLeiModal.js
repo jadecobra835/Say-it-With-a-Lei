@@ -8,12 +8,12 @@ import "../../../../node_modules/dropzone/dist/min/dropzone.min.css";
 
 ReactModal.setAppElement(".app-wrapper")
  
-export default class GraduationModal extends Component {
+export default class NewLeiModal extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
-            apiUrl: "http://127.0.0.1:5000/add-graduation",
+            apiUrl: "http://127.0.0.1:5000/add-lei",
             name: "",
             price: "",
             image: "",
@@ -79,7 +79,7 @@ export default class GraduationModal extends Component {
             "color3": this.state.color3,
             "color4": this.state.color4,
             "image": this.state.image.dataURL,
-            "type": "graduation",
+            "type": this.props.type,
             "description": this.state.description
         }
 
@@ -110,6 +110,8 @@ export default class GraduationModal extends Component {
             console.log(result)
 
             this.imageRef.current.dropzone.removeAllFiles()
+
+            this.props.update()
 
         }).catch(error => {
             console.log("newLeiModal handleSubmit error", error);

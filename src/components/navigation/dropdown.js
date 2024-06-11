@@ -52,23 +52,26 @@ class NavLinks extends Component {
                         </div>
 
                         <div className="linkWrapper lightTeal">
+                            <NavLink to="/graduation" className="navLink">Graduation</NavLink> 
+                        </div>
+
+                        <div className="linkWrapper darkTeal">
+                            <NavLink to="/wedding-and-baptism" className="navLink">Wedding & Baptism</NavLink> 
+                        </div>
+
+                        <div className="linkWrapper lightTeal">
                             <NavLink to="/make-your-own" className="navLink">Design Your Own</NavLink>
                         </div>
 
                         <div className="linkWrapper darkTeal">
-                            <NavLink to="/graduation" className="navLink">Graduation</NavLink>
+                            <NavLink to="/cart" className="navLink">Cart</NavLink>  
                         </div>
 
                         <div className="linkWrapper lightTeal">
-                            <NavLink to="/cart" className="navLink">Cart</NavLink>  
-                            
-                        </div>
-
-                        <div className="linkWrapper darkTeal">
                             <NavLink to="/payment" className="navLink">Payment</NavLink> 
                         </div>
 
-                        <div className="linkWrapper lightTeal">
+                        <div className="linkWrapper darkTeal">
                             <NavLink to="/auth" className="navLink">Auth</NavLink>
                         </div>
                     </div>
