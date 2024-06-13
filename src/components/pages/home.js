@@ -7,6 +7,19 @@ import graduation from '../../../static/assets/OrangeLei.jpg';
 import custom from '../../../static/assets/BlueGreenLei.jpg';
  
 export default class Home extends Component {
+    constructor(props) {
+        super(props)
+    }
+
+    componentDidMount() {
+        const href = window.location.href
+        const successCheck = href.substring(href.lastIndexOf('/'), href.indexOf('?'))
+
+        if (successCheck == '/success') {
+            this.props.clearCart()
+        }
+    }
+
     render() {
         return (
             <div className="home">

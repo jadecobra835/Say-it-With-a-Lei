@@ -1,5 +1,6 @@
-import React, {useState} from 'react';
-import {useStripe, useElements, PaymentElement, AddressElement} from '@stripe/react-stripe-js';
+import React, {useState, useEffect} from 'react';
+import { NavLink } from 'react-router-dom';
+import {useStripe, useElements, useCustomCheckout, PaymentElement, AddressElement, ExpressCheckoutElement, CustomCheckoutProvider} from '@stripe/react-stripe-js';
 
 const options = {mode: 'shipping'}
 
@@ -9,14 +10,38 @@ export default function PaymentForm(props) {
 
     const [errorMessage, setErrorMessage] = useState();
     const [loading, setLoading] = useState(false);
+    const [email, setEmail] = useState('');
 
     const handleError = (error) => {
         setLoading(false);
         setErrorMessage(error.message);
     }
 
+    const handleChange = (event) => {
+        setEmail(event.target.value)
+    }
+
     const handleSubmit = async (event) => {
         event.preventDefault();
+
+        const cartItems = props.cartItems
+
+        let description = ''
+    
+        for (let item in cartItems) {
+            const cartItem = cartItems[item]
+    
+            if (cartItem.type == 'custom') {
+                if (cartItem.size == 'single') {
+                    description += `Custom Lei: \n   Weave = ${cartItem.size}, \n   Color1 = ${cartItem.color1.colorName}, \n   Color2 = ${cartItem.color2.colorName}, \n   Qty = ${cartItem.qty}.\n`
+                } else {
+                    description += `Custom Lei: \n   Weave = ${cartItem.size}, \n   Color1 = ${cartItem.color1.colorName}, \n   Color2 = ${cartItem.color2.colorName}, \n   Color3 = ${cartItem.color3.colorName}, \n   Color4 = ${cartItem.color4.colorName}, \n   Qty = ${cartItem.qty}.\n`
+                }
+            } else {
+                description += `Premade Lei: \n   Name: ${cartItem.leiItem.name}, \n   Qty: ${cartItem.qty}.\n`
+            }
+        }
+
 
         if (!stripe) {
             // Stripe.js hasn't yet loaded
@@ -41,18 +66,23 @@ export default function PaymentForm(props) {
             },
             body: JSON.stringify({
                 "amount": (props.totalPrice * 100),
+                "receipt_email": email,
+                "description": description
             }),
-            credentials: 'include'
+        }).then(function(response) {
+            return response.json()
+        }).then(function(data) {
+            return data
         })
-        
-        const {client_secret: clientSecret} = await res.json()
+
+        const intent = await res
 
         // Confirm the PaymentIntent using the details collected by the Payment Element
         const {error} = await stripe.confirmPayment({
             elements,
-            clientSecret: clientSecret,
+            clientSecret: intent.client_secret,
             confirmParams: {
-                return_url: 'http://localhost:3000/'
+                return_url: 'http://localhost:3000/success'
             },
         });
 
@@ -61,7 +91,7 @@ export default function PaymentForm(props) {
             // confirming the payment.
             handleError(error);
         } else {
-
+            setLoading(false);
         }
     };
     
@@ -70,6 +100,13 @@ export default function PaymentForm(props) {
             <div className="heading">
                 <h1>Payment</h1>
             </div>
+
+            <input
+                type="email"
+                placeholder='Email'
+                onChange={handleChange}
+                value={email}
+            />
 
             <form onSubmit={handleSubmit} className="paymentForm">
                 <div className="subHeading">
@@ -81,6 +118,8 @@ export default function PaymentForm(props) {
                 <div className="subHeading">
                     Payment Method
                 </div>
+
+                <ExpressCheckoutElement />
 
                 <PaymentElement />
 

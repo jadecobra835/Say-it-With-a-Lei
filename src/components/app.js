@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import '@stripe/stripe-js';
 
@@ -27,9 +28,25 @@ export default class App extends Component {
     this.handleCartQtyChange = this.handleCartQtyChange.bind(this);
     this.handleCartRemoveItem = this.handleCartRemoveItem.bind(this);
     this.totalCartPrice = this.totalCartPrice.bind(this);
+    this.logOut = this.logOut.bind(this);
+    this.clearCart = this.clearCart.bind(this);
   }
 
   componentDidMount() {
+    axios({
+      method: "GET",
+      url: 'http://127.0.0.1:5000/check-if-logged-in',
+      withCredentials: true,
+    }).then(response => {
+      if(response.data == 'LOGGED_IN') {
+        this.setState({
+          loggedInStatus: true
+        })
+      }
+    }).catch(error => {
+      console.log('Error verifying login:', error)
+    })
+
     const cartData = localStorage.getItem("cart")
     if (cartData !== null) {
       const cart = JSON.parse(cartData)
@@ -98,9 +115,26 @@ export default class App extends Component {
     localStorage.setItem("cart", JSON.stringify(this.state.cartItems))
   }
 
+  clearCart() {
+    console.log('clearingCart')
+    this.setState({
+      cartItems: []
+    })
+
+    if (localStorage.getItem("cart") !== null) {
+      localStorage.removeItem("cart")
+    }
+  }
+
   successfullLogin(state) {
     this.setState({
       loggedInStatus: state
+    })
+  }
+
+  logOut() {
+    this.setState({
+      loggedInStatus: false
     })
   }
 
@@ -109,11 +143,21 @@ export default class App extends Component {
       <div className='app'>
         <Router>
           <div className="navBar">
-            <Navigation />
+            <Navigation loggedInStatus={this.state.loggedInStatus} logOut={() => this.logOut()} />
           </div>
 
           <Switch>
-            <Route exact path="/" component={Home} />
+            <Route 
+              exact path={["/", "/success"]} 
+              render={
+                props => (
+                  <Home 
+                    {...props}
+                    clearCart = {this.clearCart}
+                  />
+              )} 
+            />
+
             <Route path="/about-me" component={AboutMe} />
 
             <Route 
@@ -152,6 +196,7 @@ export default class App extends Component {
                 <Payment
                   {...props}
                   totalPrice={this.totalCartPrice}
+                  cartItems={this.state.cartItems}
                 />
               )} 
             />

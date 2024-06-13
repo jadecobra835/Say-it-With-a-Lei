@@ -4,6 +4,7 @@ import { loadStripe } from '@stripe/stripe-js';
 
 import PaymentForm from '../payment/paymentForm';
 
+// pk_test_51PQViX2LwPJhFNX9Hb5wIPwOj7VtYw9etndJ878cCvhI7VTzox5Nlhoxi1M1EEixSGx4Ajhx07UMh9dg6wsLpmoz00BUtdRbXn
 const stripePromise = loadStripe("pk_test_51PK34NGDzZ4Hs4RWlUWqucvN3XbzvduTjKSSxf3p7G7xItTcoHwId5sb3Ywl7EbZONEtbo5yQ18VgOWkNIPePLB900uPVaXNQk")
 
 export default function Payment(props) {
@@ -75,8 +76,10 @@ export default function Payment(props) {
     };
     
     return (
-        <Elements stripe={stripePromise} options={options}>
-            <PaymentForm totalPrice={totalPrice}/>
-        </Elements>
+        <div>
+            <Elements stripe={stripePromise} options={options}>
+                <PaymentForm totalPrice={totalPrice} cartItems={props.cartItems}/>
+            </Elements>
+        </div>
     );
 }

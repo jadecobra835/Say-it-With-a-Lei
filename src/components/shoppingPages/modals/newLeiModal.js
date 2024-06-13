@@ -224,6 +224,10 @@ export default class NewLeiModal extends Component {
                         </div>
 
                         <div className="row4">
+                            <div className="imageText">
+                                Make sure images are cropped to be square.
+                            </div>
+
                             <DropzoneComponent
                                 name="dropzone"
                                 className="dropzone"

@@ -4,9 +4,31 @@
     align-items: center;
     flex-direction: column;
 
-    .paymentForm {
-        width: 400px;
+    input {
+        width: 23%;
+        padding: 0.75rem;
+        border: 1px solid #e9e9e9;
+        height: 18.4px;
+        border-radius: 5px;
+        border-bottom: 2px solid $green;
+        transition: 0.15s ease;
+        outline: none;
+        font-size: 1em;
+        color: #999999;
+        font-weight: 500;
+        box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.03), 0px 3px 6px rgba(0, 0, 0, 0.02);
 
+        &:focus {
+            border-bottom: 2px solid $light-teal;
+        }
+    }
+
+    input::placeholder {
+        color: #5a5a5a;
+    }
+
+    .paymentForm {
+        width: 25%;
         .subHeading {
             margin: 20px 0px;
         }

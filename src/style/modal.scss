@@ -45,9 +45,15 @@
 
     .row4 {
         display: flex;
-        justify-content: center;
+        flex-direction: column;
+        align-items: center;
         margin: 20px;
         width: 100%;
+
+        .imageText {
+            margin-bottom: 10px;
+            color: $light-teal;
+        }
 
         .dropzone {
             width: 50%;
