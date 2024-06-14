@@ -4,6 +4,7 @@
     grid-template-columns: 1fr 2.5fr 0.5fr;
     width: 50%;
     background-color: #F0F0F0;
+    transition: ease-in-out 0.5s;
 
     .cartItemImageWrapper {
         width: 200px;
@@ -24,7 +25,6 @@
         justify-content: space-between;
 
         .cartItemName {
-            color: black;
             font-size: 20px;
             font-weight: 600;
             color: $light-teal;
@@ -89,5 +89,81 @@
         justify-content: center;
         align-items: center;
         margin-right: 10px;
+    }
+}
+
+@media (max-width: 1150px) {
+    .cartItemWrapper {
+        width: 70%;
+    }
+}
+
+@media (max-width: 800px) {
+    .cartItemWrapper {
+        display: flex;
+        flex-direction: row;
+        width: 90%;
+        height: fit-content;
+
+        .cartItemImageWrapper {
+            width: 100px;
+            height: 132px;
+            // margin: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            img {
+                height: 100px;
+                width: 100px;
+            }
+        }
+    
+
+        .cartItemOtherContent {
+            margin: 10px 0px;
+            display: flex;
+            flex-direction: column;
+
+            .cartItemName {
+                font-size: 12px;
+                width: 100%;
+                text-align: center;
+            }
+
+            .center-content {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 5px 0px;
+
+                .cartItemDescription {
+                    height: 0px;
+                    width: 0px;
+                    color: transparent;
+                }
+            }
+
+            .bottom-content {
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                .qty-selector {
+                    select {
+                        padding: 5px;
+                        font-size: 12px;
+                        height: fit-content;
+                        width: fit-content;
+                    }
+                }
+
+                .removeCartItem {
+                    margin: 10px 0px;
+                    font-size: 12px;
+                    text-align: center;
+                }
+            }
+        }
     }
 }

@@ -31,3 +31,30 @@
         }
     }
 }
+
+@media (max-width: 1300px) {
+    .leiItemsWrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media (max-width: 800px) {
+    .leiItemsWrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 500px) {
+    .heading {
+        h1 {
+            text-align: center;
+        }
+    }
+    
+    .leiItemsWrapper {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+}

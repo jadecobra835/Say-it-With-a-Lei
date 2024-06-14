@@ -33,19 +33,19 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    axios({
-      method: "GET",
-      url: 'http://127.0.0.1:5000/check-if-logged-in',
-      withCredentials: true,
-    }).then(response => {
-      if(response.data == 'LOGGED_IN') {
-        this.setState({
-          loggedInStatus: true
-        })
-      }
-    }).catch(error => {
-      console.log('Error verifying login:', error)
-    })
+    const lastLoggedIn = localStorage.getItem("dateLoggedIn")
+    const d = new Date()
+    const todaysDate = d.toDateString();
+
+    if (lastLoggedIn == todaysDate) {
+      this.setState({
+        loggedInStatus: true
+      })
+    } else {
+      this.setState({
+        loggedInStatus: false
+      })
+    }
 
     const cartData = localStorage.getItem("cart")
     if (cartData !== null) {
@@ -126,10 +126,13 @@ export default class App extends Component {
     }
   }
 
-  successfullLogin(state) {
+  successfullLogin(state, date) {
     this.setState({
       loggedInStatus: state
     })
+
+    localStorage.removeItem("dateLoggedIn")
+    localStorage.setItem("dateLoggedIn", date)
   }
 
   logOut() {

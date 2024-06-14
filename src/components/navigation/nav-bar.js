@@ -16,17 +16,10 @@ export default class Navigation extends Component {
     }
 
     logOut() {
-        axios({
-            method: "GET",
-            url: `http://127.0.0.1:5000/logout`,
-            withCredentials: true
-        }).then(response => {
-            if (response.data == 'LOGGED_OUT') {
-                this.props.logOut()
-            }
-        }).catch(error => {
-            console.log('handleDelete Error:', error)
-        });
+        localStorage.removeItem("dateLoggedIn")
+        if (localStorage.getItem("dateLoggedIn") == null) {
+            this.props.logOut()
+        }
     }
     
     render() {    

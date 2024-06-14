@@ -114,3 +114,20 @@
         }
     }
 }
+
+@media (max-width: 700px) {
+    .customLeiPage {
+        .heading {
+            h1 {
+                text-align: center;
+            }
+        }
+
+        .colorElementsWrapper  {
+            .colorWrapper {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
+    }
+}

@@ -66,3 +66,28 @@
         }
     }
 }
+
+@media (max-width: 1200px) {
+    .paymentFormWrapper {
+        input {
+            width: 50%;
+        }
+
+        .paymentForm {
+            width: 53%;
+        }
+    }
+}
+
+
+@media (max-width: 500px) {
+    .paymentFormWrapper {
+        input {
+            width: 85%;
+        }
+
+        .paymentForm {
+            width: 93%;
+        }
+    }
+}

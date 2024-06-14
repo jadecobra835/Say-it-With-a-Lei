@@ -54,6 +54,8 @@ export default class CartItem extends Component {
 
             const newSize = size[0].toUpperCase() + size.slice(1);
 
+            let mediaQuery = window.matchMedia("(max-width: 700px)")
+
             return (
                 <div className="cartItemWrapper" id={this.props.id}>
                     <div className="cartItemImageWrapper" >
@@ -66,6 +68,14 @@ export default class CartItem extends Component {
                         </div>
 
                         <div className="center-content">
+                            {mediaQuery.matches ? 
+                                <div>
+                                    {`$${price * this.state.qty}.00`}
+                                </div>
+                            :
+                                <div />
+                            }
+
                             <div className="cartItemDescription">
                                 { color3.id == "none"  ?
                                     <div className="colorList">
@@ -110,7 +120,13 @@ export default class CartItem extends Component {
                     </div>
 
                     <div className="price">
-                        {`$${price * this.state.qty}.00`}
+                            {mediaQuery.matches ? 
+                                <div />
+                            :
+                                <div>
+                                    {`$${price * this.state.qty}.00`}
+                                </div>
+                            }
                     </div>
                 </div>
             );
@@ -133,6 +149,8 @@ export default class CartItem extends Component {
                 type
             } = leiItem
 
+            let mediaQuery = window.matchMedia("(max-width: 700px)")
+
             return (
                 <div className="cartItemWrapper" id={this.props.id}>
                     <div className="cartItemImageWrapper">
@@ -145,6 +163,14 @@ export default class CartItem extends Component {
                         </div>
 
                         <div className="center-content">
+                            {mediaQuery.matches ? 
+                                <div>
+                                    {`$${price * this.state.qty}.00`}
+                                </div>
+                            :
+                                <div />
+                            }
+
                             <div className="cartItemDescription">
                                 {description}
                             </div>
@@ -177,7 +203,13 @@ export default class CartItem extends Component {
                     </div>
 
                     <div className="price">
-                        {`$${price * this.state.qty}.00`}
+                            {mediaQuery.matches ? 
+                                <div />
+                            :
+                                <div>
+                                    {`$${price * this.state.qty}.00`}
+                                </div>
+                            }
                     </div>
                 </div>
             );

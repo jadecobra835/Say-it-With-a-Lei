@@ -64,3 +64,30 @@
         }
     }
 }
+
+@media (max-width: 820px) {
+    .leiItemWrapper {
+        display: flex;
+        flex-direction: column;
+
+        .rightColumn {
+            margin: 0px 5px 0px 5px;   
+
+            .leiItemTop {
+                flex-direction: column;
+
+                .leiPrice {
+                    justify-content: center;
+                }
+            }
+
+            .leiItemBody {
+                display: flex;
+                justify-content: center;
+                margin: 20px 5px 20px 5px;
+            }
+        }
+    }
+
+
+}

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faGraduationCap, faRing, faPalette } from '@fortawesome/free-solid-svg-icons'
 
 import headshot from '../../../static/assets/HomeHeadshot.jpg';
 import weddingAndBaptism from '../../../static/assets/BlueGreenLei.jpg';
@@ -24,31 +26,36 @@ export default class Home extends Component {
         return (
             <div className="home">
                 <div className="pictureLinksWrapper">
-                    <div className="pictureLink">
+                    <div className="pictureLink weddingLink">
                         <NavLink to="wedding-and-baptism">
                             <div className="imageLink" style={{backgroundImage: `url(${weddingAndBaptism})`}}>
-                                <div className="imageButton">
+                                <FontAwesomeIcon icon={faRing} className="icon weddingIcon" />
+                                
+                                <div className="imageButton weddingText">
                                     <p>Wedding & Baptism</p>
                                 </div>
                             </div>
                         </NavLink>
-                        
                     </div>
 
-                    <div className="pictureLink">
+                    <div className="pictureLink graduationLink">
                         <NavLink to="graduation">
                             <div className="imageLink" style={{backgroundImage: `url(${graduation})`}}>
-                                <div className="imageButton">
+                                <FontAwesomeIcon icon={faGraduationCap} className="icon graduationIcon" />
+                                
+                                <div className="imageButton graduationText">
                                     <p>Graduation</p>
                                 </div>
                             </div>
                         </NavLink>
                     </div>
 
-                    <div className="pictureLink">
+                    <div className="pictureLink customLink">
                         <NavLink to="make-your-own">
                             <div className="imageLink" style={{backgroundImage: `url(${custom})`}}>
-                                <div className="imageButton">
+                                <FontAwesomeIcon icon={faPalette} className="icon customIcon" />
+                                
+                                <div className="imageButton customText">
                                     <p>Design Your Own</p>
                                 </div>
                             </div>
@@ -63,10 +70,12 @@ export default class Home extends Component {
                         </div>
 
                         <div className="text aboutMeText">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
-                            sunt in culpa qui officia deserunt mollit anim id est laborum. <NavLink to="about-me">Learn More...</NavLink>
+                        <p>
+                            <strong style={{color: '#64C6B9'}}>Aloha!</strong> My name is <strong style={{color: '#64C6B9'}}>Jennifer Gilson</strong>, and I am the founder and creative force behind <strong style={{color: '#64C6B9'}}>“Say It With A Lei,”</strong> a lei business dedicated to sharing the rich traditions of Hawaii with others.
+                        </p>
+                        <p>
+                            While going to college in Hawaii, I was deeply inspired by the island’s natural beauty and cultural heritage. I learned from island locals how to make several kinds of authentic leis with ribbon. Leis have always held a special place in my heart: symbolizing love, celebration, and the warm embrace of Aloha. I started crafting leis as a hobby, a way to stay connected to my time in Hawaii and share the joy of Hawaiian traditions with others. <NavLink to="about-me">Learn More...</NavLink>
+                        </p>
                         </div>
                     </div>
 
@@ -100,7 +109,33 @@ export default class Home extends Component {
                         </div>
 
                         <div className="paymentOptions">
+                            <div className="paymentOption">
+                                Visa
+                            </div>
 
+                            <div className="paymentOption">
+                                Mastercard
+                            </div>
+
+                            <div className="paymentOption">
+                                American Express
+                            </div>
+
+                            <div className="paymentOption">
+                                Discover
+                            </div>
+
+                            <div className="paymentOption">
+                                Diners Club
+                            </div>
+
+                            <div className="paymentOption">
+                                JCB
+                            </div>
+
+                            <div className="paymentOption">
+                                Apple Pay
+                            </div>
                         </div>
                     </div>
 

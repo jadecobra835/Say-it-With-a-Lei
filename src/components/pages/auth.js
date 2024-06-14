@@ -40,6 +40,9 @@ export default class Auth extends Component {
             const result = response.data
 
             if (result == "Success") {
+                const d = new Date()
+                const date = d.toDateString()
+
                 this.setState({
                     logInStatus: true,
                     popupSize: 200,
@@ -47,7 +50,7 @@ export default class Auth extends Component {
                     popupTextSize: "20px"
                 })
 
-                this.props.successfullLogin(this.state.logInStatus)
+                this.props.successfullLogin(this.state.logInStatus, date)
                 this.props.history.push("/", {logInStatus: true} )
             } else if (result == "Wrong username or password") {
                 this.setState({

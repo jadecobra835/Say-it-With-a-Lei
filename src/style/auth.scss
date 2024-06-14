@@ -60,3 +60,12 @@
         }
     }
 }
+
+@media (max-width: 600px) {
+    .authForm {
+        height: 300px;
+        input {
+            width: 85%;
+        }
+    }
+}

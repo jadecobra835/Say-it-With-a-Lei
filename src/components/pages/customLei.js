@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle } from '@fortawesome/free-regular-svg-icons'
 import { faCircleCheck , faCircle as solidCircle } from '@fortawesome/free-solid-svg-icons'
 
-
 import ColorItem from '../customLei/colorItem';
 
 export default class Custom extends Component {
