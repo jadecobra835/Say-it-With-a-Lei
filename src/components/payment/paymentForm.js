@@ -59,7 +59,7 @@ export default function PaymentForm(props) {
         }
 
         // Create the PaymentIntent and obtain clientSecret
-        const res = await fetch("http://localhost:4000/create-intent", {
+        const res = await fetch("https://xjj-say-it-with-a-lei-node-4f0fc5758ea4.herokuapp.com/create-intent", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
