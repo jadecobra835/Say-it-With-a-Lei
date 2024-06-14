@@ -77,12 +77,16 @@ export default function PaymentForm(props) {
 
         const intent = await res
 
+        const href = window.location.href
+        const redirectUrlOne = href.substring(0, href.lastIndexOf('/'))
+        const redirectUrl = redirectUrlOne + '/success';
+
         // Confirm the PaymentIntent using the details collected by the Payment Element
         const {error} = await stripe.confirmPayment({
             elements,
             clientSecret: intent.client_secret,
             confirmParams: {
-                return_url: 'http://localhost:3000/success'
+                return_url: redirectUrl
             },
         });
 

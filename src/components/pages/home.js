@@ -14,7 +14,7 @@ export default class Home extends Component {
     }
 
     componentDidMount() {
-        const href = window.location.href
+        const href = window.location.hostname
         const successCheck = href.substring(href.lastIndexOf('/'), href.indexOf('?'))
 
         if (successCheck == '/success') {
