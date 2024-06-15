@@ -32,7 +32,6 @@ export default class Auth extends Component {
     handleSubmit(event) {
         axios({
             method: "POST",
-            // url: "http://127.0.0.1:5000/auth",
             url: "https://xjj-say-it-with-a-lei-python-ee64a24a30bb.herokuapp.com/auth",
             headers: {"content-type": "applicaiton.json"},          
             data: this.buildForm(),

@@ -27,7 +27,7 @@ export default class WeddingAndBaptism extends Component {
 
     getLeis() {
         axios
-            .get('http://127.0.0.1:5000/get-preset-leis/wedding-and-baptism')
+            .get('https://xjj-say-it-with-a-lei-python-ee64a24a30bb.herokuapp.com/get-preset-leis/wedding-and-baptism')
             .then(response => {
                 const result = response.data
                 this.setState({

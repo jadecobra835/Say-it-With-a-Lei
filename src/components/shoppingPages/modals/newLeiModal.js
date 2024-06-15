@@ -13,7 +13,7 @@ export default class NewLeiModal extends Component {
         super(props)
 
         this.state = {
-            apiUrl: "http://127.0.0.1:5000/add-lei",
+            apiUrl: "https://xjj-say-it-with-a-lei-python-ee64a24a30bb.herokuapp.com/add-lei",
             name: "",
             price: "",
             image: "",

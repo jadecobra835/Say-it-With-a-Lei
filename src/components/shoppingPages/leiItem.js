@@ -32,7 +32,7 @@ export default class LeiItem extends Component {
     
     getLeis() {
         axios.get(
-            `http://127.0.0.1:5000/get-one-lei/${this.props.match.params.slug}`,
+            `https://xjj-say-it-with-a-lei-python-ee64a24a30bb.herokuapp.com/get-one-lei/${this.props.match.params.slug}`,
             { withCredentials: true }
         ).then(response => {
             this.setState({

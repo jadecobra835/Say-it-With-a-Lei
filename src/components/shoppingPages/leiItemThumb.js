@@ -15,7 +15,7 @@ export default class LeiItemThumb extends Component {
         event.preventDefault();
         axios({
             method: "DELETE",
-            url: `http://127.0.0.1:5000/delete-lei/${this.props.item.id}`,
+            url: `https://xjj-say-it-with-a-lei-python-ee64a24a30bb.herokuapp.com/delete-lei/${this.props.item.id}`,
             withCredentials: true
         }).then(response => {
             console.log(response.data)

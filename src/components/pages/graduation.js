@@ -27,8 +27,7 @@ export default class Graduation extends Component {
 
     getLeis() {
         axios
-            // .get('http://127.0.0.1:5000/get-preset-leis/graduation')
-            .get('https://xjj-say-it-with-a-lei-python-ee64a24a30bb.herokuapp.com/get-preset-leis.graduation')
+            .get('https://xjj-say-it-with-a-lei-python-ee64a24a30bb.herokuapp.com/get-preset-leis/graduation')
             .then(response => {
                 const result = response.data
                 this.setState({
