@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import customLei from '../../../static/assets/BlueGreenLeiSquare.jpg'
+import customLei from '../../../static/assets/CustomLeiImageThumb.jpg'
  
 export default class CartItem extends Component {
     constructor(props) {
@@ -8,7 +8,7 @@ export default class CartItem extends Component {
 
         this.state = {
             qty: 1,
-            price: 15
+            price: 15,
         }
 
         this.handleQtyChange = this.handleQtyChange.bind(this);

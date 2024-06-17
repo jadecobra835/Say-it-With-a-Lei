@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
+import { faCirclePlus, faSpinner } from '@fortawesome/free-solid-svg-icons';
 
 import LeiItemThumb from '../shoppingPages/leiItemThumb';
 import NewLeiModal from '../shoppingPages/modals/newLeiModal';
@@ -13,7 +13,8 @@ export default class WeddingAndBaptism extends Component {
 
         this.state = {
             modalStatus: false,
-            allLeis: []
+            allLeis: [],
+            loading: false
         }
 
         this.modalStatus = this.modalStatus.bind(this);
@@ -26,12 +27,17 @@ export default class WeddingAndBaptism extends Component {
     }
 
     getLeis() {
+        this.setState({
+            loading: true
+        })
+
         axios
             .get('https://xjj-say-it-with-a-lei-python-ee64a24a30bb.herokuapp.com/get-preset-leis/wedding-and-baptism')
             .then(response => {
                 const result = response.data
                 this.setState({
-                    allLeis: result
+                    allLeis: result,
+                    loading: false
                 })
             })
             .catch(error => {
@@ -74,6 +80,12 @@ export default class WeddingAndBaptism extends Component {
                 <div className="leiItemsWrapper">
                     {this.leiItems()}
                 </div>
+
+                {this.state.loading ? (
+                    <div className="loadingIcon">
+                        <FontAwesomeIcon icon={faSpinner} spin={true} />
+                    </div>
+                ) : null }
 
                 { this.props.loggedInStatus == true ? 
                     <div>

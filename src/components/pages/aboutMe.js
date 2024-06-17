@@ -13,10 +13,10 @@ export default function() {
                 </div>
                 <div className="description">
                     <p>
-                        <strong style={{color: '#64C6B9'}}>Aloha!</strong> My name is <strong style={{color: '#64C6B9'}}>Jennifer Gilson</strong>, and I am the founder and creative force behind <strong style={{color: '#64C6B9'}}>“Say It With A Lei,”</strong> a lei business dedicated to sharing the rich traditions of Hawaii with others.
+                        <strong style={{color: '#64C6B9'}}>Aloha!</strong> My name is <strong style={{color: '#64C6B9'}}>Jennifer Gilson</strong>, and I am the founder and creative force behind: <strong style={{color: '#64C6B9'}}>Say It With A Lei</strong>, a lei business dedicated to sharing the rich traditions of Hawaii with others.
                     </p>
                     <p>
-                        While going to college in Hawaii, I was deeply inspired by the island’s natural beauty and cultural heritage. I learned from island locals how to make several kinds of authentic leis with ribbon. Leis have always held a special place in my heart: symbolizing love, celebration, and the warm embrace of Aloha. I started crafting leis as a hobby, a way to stay connected to my time in Hawaii and share the joy of Hawaiian traditions with others.
+                        While going to college in Hawaii, I was deeply inspired by the island’s natural beauty and cultural heritage. I learned from island locals how to make several kinds of authentic leis with ribbon. Leis have always held a special place in my heart: symbolizing love, celebration, and the warm embrace of Aloha. I started crafting leis as a hobby, a way to stay connected to my time in Hawaii, and a way to share the joy of Hawaiian traditions with others.
                     </p>
                     <p>
                         After graduating over 20 years ago, I still have my own graduation ribbon leis! With Say It With A Lei, each piece is meticulously handcrafted using high-quality materials, ensuring that every lei is not only a stunning accessory but also a cherished keepsake.
